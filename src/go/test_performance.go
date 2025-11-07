@@ -8,9 +8,11 @@ import (
 )
 
 // ArrayEntry represents an entry in the array-based structure
+// Additional fields in JSON are automatically ignored by Go's JSON unmarshaler
 type ArrayEntry struct {
 	Types []string `json:"types"`
 	Value int      `json:"value"`
+	// Any other fields in JSON are silently ignored
 }
 
 // ArrayData represents the array-based structure
@@ -21,10 +23,11 @@ type ArrayData struct {
 }
 
 // ObjectData represents the object-based structure
+// Uses map[string]interface{} to handle additional fields beyond "value"
 type ObjectData struct {
-	ObjectClassName string                    `json:"objectClassName"`
-	LdhName         string                    `json:"ldhName"`
-	TTL0Data        map[string]map[string]int `json:"ttl0_data"`
+	ObjectClassName string                            `json:"objectClassName"`
+	LdhName         string                            `json:"ldhName"`
+	TTL0Data        map[string]map[string]interface{} `json:"ttl0_data"`
 }
 
 func getTTLArray(data *ArrayData, recordType string) (int, bool) {
@@ -40,8 +43,16 @@ func getTTLArray(data *ArrayData, recordType string) (int, bool) {
 
 func getTTLObject(data *ObjectData, recordType string) (int, bool) {
 	if recordData, ok := data.TTL0Data[recordType]; ok {
-		if value, ok := recordData["value"]; ok {
-			return value, true
+		if valueInterface, ok := recordData["value"]; ok {
+			// Handle both int and float64 (JSON numbers are float64 by default)
+			switch v := valueInterface.(type) {
+			case int:
+				return v, true
+			case float64:
+				return int(v), true
+			case int64:
+				return int(v), true
+			}
 		}
 	}
 	return 0, false
@@ -68,7 +79,7 @@ func benchmarkObject(data *ObjectData, recordType string, iterations int) (time.
 }
 
 func main() {
-	iterations := 10000000
+	iterations := 1000000
 	recordType := "A"
 
 	// Load array data
