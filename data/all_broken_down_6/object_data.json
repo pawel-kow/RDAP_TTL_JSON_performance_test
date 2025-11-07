@@ -6,19 +6,19 @@
       "value": 3600
     },
     "AAAA": {
-      "value": 3600
+      "value": 3601
     },
     "NS": {
-      "value": 86400
+      "value": 3602
     },
     "DS": {
-      "value": 86400
+      "value": 3603
     },
     "MX": {
-      "value": 7200
+      "value": 3604
     },
     "TXT": {
-      "value": 7200
+      "value": 3605
     }
   }
 }

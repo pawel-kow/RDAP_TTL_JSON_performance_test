@@ -1,0 +1,28 @@
+{
+    "objectClassName": "nameserver",
+    "ldhName": "ns1.example.com",
+    "ttl0_data": {
+        "A": {
+            "value": 86400,
+            "remarks": [
+                {
+                    "description": [
+                        "The .example registry does not permit TTL ",
+                        "values for nameservers to be changed."
+                    ]
+                }
+            ]
+        },
+        "AAAA": {
+            "value": 86400,
+            "remarks": [
+                {
+                    "description": [
+                        "The .example registry does not permit TTL ",
+                        "values for nameservers to be changed."
+                    ]
+                }
+            ]
+        }
+    }
+}

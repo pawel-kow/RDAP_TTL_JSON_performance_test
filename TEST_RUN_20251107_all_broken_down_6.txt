@@ -1,8 +1,17 @@
+Skipping build step as requested.
+
+Running tests...
+Mounting data directory: /Users/pawelk/Projects/RDAP_TTL_JSON_performance_test/./data/all_broken_down_6
+
+
 ╔════════════════════════════════════════════════════════════╗
 ║  TTL Performance Test Suite: Array vs Object Approach      ║
 ║  Testing DNS Record Type: A                                ║
 ╚════════════════════════════════════════════════════════════╝
 
+total 8
+-rw------- 1 root root 525 Nov  7 20:21 array_data.json
+-rw------- 1 root root 327 Nov  7 20:21 object_data.json
 Running Python test...
 ============================================================
 PYTHON PERFORMANCE TEST
@@ -12,15 +21,15 @@ Iterations: 10,000,000
 
 Array Approach:
   TTL Retrieved: 3600
-  Total Time: 778.78 ms
-  Avg Time: 0.0779 µs/op
+  Total Time: 636.58 ms
+  Avg Time: 0.0637 µs/op
 
 Object Approach:
   TTL Retrieved: 3600
-  Total Time: 625.97 ms
-  Avg Time: 0.0626 µs/op
+  Total Time: 632.31 ms
+  Avg Time: 0.0632 µs/op
 
-Speedup: 1.24x (object is 1.24x faster)
+Speedup: 1.01x (object is 1.01x faster)
 ============================================================
 
 
@@ -33,15 +42,15 @@ Iterations: 10000000
 
 Array Approach:
   TTL Retrieved: 3600
-  Total Time: 419.48 ms
-  Avg Time: 0.0419 µs/op
+  Total Time: 423.78 ms
+  Avg Time: 0.0424 µs/op
 
 Object Approach:
   TTL Retrieved: 3600
-  Total Time: 251.29 ms
-  Avg Time: 0.0251 µs/op
+  Total Time: 257.79 ms
+  Avg Time: 0.0258 µs/op
 
-Speedup: 1.67x (object is 1.67x faster)
+Speedup: 1.64x (object is 1.64x faster)
 ============================================================
 
 
@@ -54,15 +63,15 @@ Iterations: 10,000,000
 
 Array Approach:
   TTL Retrieved: 3600
-  Total Time: 217.41 ms
-  Avg Time: 0.0217 ?s/op
+  Total Time: 154.43 ms
+  Avg Time: 0.0154 ?s/op
 
 Object Approach:
   TTL Retrieved: 3600
-  Total Time: 136.52 ms
-  Avg Time: 0.0137 ?s/op
+  Total Time: 144.70 ms
+  Avg Time: 0.0145 ?s/op
 
-Speedup: 1.59x (object is 1.59x faster)
+Speedup: 1.07x (object is 1.07x faster)
 ============================================================
 
 
@@ -75,18 +84,19 @@ Iterations: 10000000
 
 Array Approach:
   TTL Retrieved: 3600
-  Total Time: 232.38 ms
-  Avg Time: 0.0232 µs/op
+  Total Time: 234.78 ms
+  Avg Time: 0.0235 µs/op
 
 Object Approach:
   TTL Retrieved: 3600
-  Total Time: 633.98 ms
-  Avg Time: 0.0634 µs/op
+  Total Time: 650.80 ms
+  Avg Time: 0.0651 µs/op
 
-Speedup: 0.37x (object is 0.37x faster)
+Speedup: 0.36x (object is 0.36x faster)
 ============================================================
 
 
 ╔════════════════════════════════════════════════════════════╗
 ║  All tests completed!                                      ║
 ╚════════════════════════════════════════════════════════════╝
+

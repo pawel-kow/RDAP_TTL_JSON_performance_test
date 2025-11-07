@@ -5,19 +5,9 @@
     {
       "types": [
         "A",
-        "AAAA"
-      ],
-      "value": 3600
-    },
-    {
-      "types": [
+        "AAAA",
         "NS",
-        "DS"
-      ],
-      "value": 86400
-    },
-    {
-      "types": [
+        "DS",
         "MX",
         "TXT"
       ],

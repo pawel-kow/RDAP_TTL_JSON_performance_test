@@ -32,10 +32,10 @@ RUN mkdir -p /opt/java/lib && \
 WORKDIR /app
 
 # Copy test files
-COPY python/ /app/python/
-COPY c/ /app/c/
-COPY java/ /app/java/
-COPY go/ /app/go/
+COPY src/python/ /app/python/
+COPY src/c/ /app/c/
+COPY src/java/ /app/java/
+COPY src/go/ /app/go/
 COPY data/ /data/
 
 # Make Python script executable
@@ -51,28 +51,7 @@ RUN javac -encoding UTF-8 -cp /opt/java/lib/gson-2.10.1.jar /app/java/TestPerfor
 RUN cd /app/go && go build -o test_performance test_performance.go
 
 # Create entrypoint script
-RUN echo '#!/bin/bash\n\
-echo ""\n\
-echo "╔════════════════════════════════════════════════════════════╗"\n\
-echo "║  TTL Performance Test Suite: Array vs Object Approach      ║"\n\
-echo "║  Testing DNS Record Type: A                                ║"\n\
-echo "╚════════════════════════════════════════════════════════════╝"\n\
-echo ""\n\
-echo "Running Python test..."\n\
-python3 /app/python/test_performance.py\n\
-echo ""\n\
-echo "Running C test..."\n\
-/app/c/test_performance\n\
-echo ""\n\
-echo "Running Java test..."\n\
-java -cp /opt/java/lib/gson-2.10.1.jar:/app/java TestPerformance\n\
-echo ""\n\
-echo "Running Go test..."\n\
-/app/go/test_performance\n\
-echo ""\n\
-echo "╔════════════════════════════════════════════════════════════╗"\n\
-echo "║  All tests completed!                                      ║"\n\
-echo "╚════════════════════════════════════════════════════════════╝"\n\
-echo ""' > /entrypoint.sh && chmod +x /entrypoint.sh
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]

@@ -1,0 +1,30 @@
+{
+  "objectClassName": "nameserver",
+  "ldhName": "ns1.example.com",
+  "ttl0_data": [
+    {
+      "types": [
+        "A"
+      ],
+      "value": 3600
+    },
+    {
+      "types": [
+        "AAAA"
+      ],
+      "value": 3601
+    },
+    {
+      "types": [
+        "NS"
+      ],
+      "value": 3602
+    },
+    {
+      "types": [
+        "DS"
+      ],
+      "value": 3603
+    }
+  ]
+}

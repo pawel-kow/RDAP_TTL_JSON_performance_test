@@ -64,19 +64,6 @@ Object Approach:
 Speedup: 5.12x (object is 5.12x faster)
 ============================================================
 ```
-
-## Key Findings
-
-**Object approach is typically 3-10x faster** because:
-- Direct hash/dictionary lookup (O(1))
-- No need to iterate through arrays
-- More efficient for single record type lookups
-
-**Array approach advantages**:
-- More compact JSON
-- Better for grouped TTL values
-- More flexible structure
-
 ## Full Documentation
 
 See [README.md](README.md) for complete documentation including:
