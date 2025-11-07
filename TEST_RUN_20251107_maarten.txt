@@ -10,8 +10,8 @@ Mounting data directory: /Users/pawelk/Projects/RDAP_TTL_JSON_performance_test/.
 ╚════════════════════════════════════════════════════════════╝
 
 total 8
--rw-r--r-- 1 root root 253 Nov  7 20:47 array_data.json
--rw-r--r-- 1 root root 385 Nov  7 20:47 object_data.json
+-rw-r--r-- 1 root root 497 Nov  7 20:48 array_data.json
+-rw-r--r-- 1 root root 745 Nov  7 20:48 object_data.json
 Running Python test...
 ============================================================
 PYTHON PERFORMANCE TEST
@@ -21,15 +21,15 @@ Iterations: 10,000,000
 
 Array Approach:
   TTL Retrieved: 86400
-  Total Time: 638.99 ms
-  Avg Time: 0.0639 µs/op
+  Total Time: 686.65 ms
+  Avg Time: 0.0687 µs/op
 
 Object Approach:
   TTL Retrieved: 86400
-  Total Time: 631.10 ms
-  Avg Time: 0.0631 µs/op
+  Total Time: 658.38 ms
+  Avg Time: 0.0658 µs/op
 
-Speedup: 1.01x (object is 1.01x faster)
+Speedup: 1.04x (object is 1.04x faster)
 ============================================================
 
 
@@ -42,15 +42,15 @@ Iterations: 10000000
 
 Array Approach:
   TTL Retrieved: 86400
-  Total Time: 421.41 ms
-  Avg Time: 0.0421 µs/op
+  Total Time: 462.49 ms
+  Avg Time: 0.0462 µs/op
 
 Object Approach:
   TTL Retrieved: 86400
-  Total Time: 255.57 ms
-  Avg Time: 0.0256 µs/op
+  Total Time: 284.30 ms
+  Avg Time: 0.0284 µs/op
 
-Speedup: 1.65x (object is 1.65x faster)
+Speedup: 1.63x (object is 1.63x faster)
 ============================================================
 
 
@@ -63,19 +63,38 @@ Iterations: 10,000,000
 
 Array Approach:
   TTL Retrieved: 86400
-  Total Time: 247.35 ms
-  Avg Time: 0.0247 ?s/op
+  Total Time: 293.49 ms
+  Avg Time: 0.0293 ?s/op
 
 Object Approach:
   TTL Retrieved: 86400
-  Total Time: 123.29 ms
-  Avg Time: 0.0123 ?s/op
+  Total Time: 173.80 ms
+  Avg Time: 0.0174 ?s/op
 
-Speedup: 2.01x (object is 2.01x faster)
+Speedup: 1.69x (object is 1.69x faster)
 ============================================================
 
 
 Running Go test...
+============================================================
+GO PERFORMANCE TEST
+============================================================
+Record Type: A
+Iterations: 1000000
+
+Array Approach:
+  TTL Retrieved: 86400
+  Total Time: 23.69 ms
+  Avg Time: 0.0237 µs/op
+
+Object Approach:
+  TTL Retrieved: 86400
+  Total Time: 70.24 ms
+  Avg Time: 0.0702 µs/op
+
+Speedup: 0.34x (object is 0.34x faster)
+============================================================
+
 
 ╔════════════════════════════════════════════════════════════╗
 ║  All tests completed!                                      ║
